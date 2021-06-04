@@ -11,13 +11,13 @@ Minimal Flask app using PostgreSQL via SQLAlchemy.
 
 ## Usage
 
-Note: You must have a postgres server running before you can run <strong>createdb</strong>. Do it by connecting to a <strong>PostgreSQL database cluster</strong> first, with the command <code style="background: black; color: white;">pg_ctl -D my_db_cluster start</code>.<br>
+First you must connect to a <strong>PostgreSQL database cluster</strong>, for instance with the command <code style="background: black; color: white;">pg_ctl -D my_db_cluster start</code>.<br>
 
-Manually create the database <code>whishlistdb</code> first, do it using the <code style="background: black; color: white;">createdb</code> command line tool installed with Postgres:
+Then, you have to manually create the database <code>whishlistdb</code>, do it using the <code style="background: black; color: white;">createdb</code> command line tool installed with Postgres:
 <pre style="background: black; color: white; overflow: hidden; white-space: break-spaces;padding: 6px;">createdb whishlistdb
 </pre>
 
-You will also have to create some database records using <code>psql</code>.<br> 
+Optionally you can also create some database records using <code>psql</code>.<br> 
 Connect <code>psql</code> to the <strong>whishlistdb</strong> database:
 <pre style="background: black; color: white; overflow: hidden; white-space: break-spaces;padding: 6px;">psql whishlistdb
 </pre>
@@ -33,7 +33,7 @@ Enter the URL <code> http://127.0.0.1:5000/</code> on your browser to display th
 
 It will just show a blank page.<br>
 
-On your terminal tab running <strong>psql</strong> insert new records into the <strong>whishes</strong> table:
+On your terminal tab run <strong>psql</strong> and insert new records into the <strong>whishes</strong> table:
     
 <pre style="background: black; color: white; overflow: hidden; white-space: break-spaces;padding: 6px;">    
 whishlistdb=# INSERT INTO whishes (description) VALUES ('Thing 1');
@@ -57,7 +57,7 @@ Finally enter the URL <code> http://127.0.0.1:5000/</code>  on your browser and 
 Expected result:<br>
 
 <div> 
-<img src="docs/images/expected-result-1.png" align="left" /> 
+<img src="docs/images/L5-C-expected-result-mvc.png" align="left" /> 
 </div> 
 <br clear="all"> 
 

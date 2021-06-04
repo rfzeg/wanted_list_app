@@ -10,7 +10,7 @@ Date: June 2021
 Usage: python3 app.py
 """
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -29,11 +29,13 @@ db.create_all()
 
 @app.route('/whishes/create', methods=['POST'])
 def create_wish():
-  description = request.form.get('description', '')
+  description = request.get_json()['description']
   wish = Wish(description=description)
   db.session.add(wish)
   db.session.commit()
-  return redirect(url_for('index'))
+  return jsonify({
+    'description': wish.description
+  })
 
 @app.route('/')
 def index():
